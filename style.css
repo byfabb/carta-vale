@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FF7F50; /* Fondo verde coral */
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.letter-container {
+    position: relative;
+    display: inline-block;
+}
+
+.letter-envelope {
+    cursor: pointer;
+    position: relative;
+    width: 220px;
+    height: 170px;
+    background-color: red; /* Sobre rojo */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.letter-envelope:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.flap-top,
+.flap-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: #B50000;
+    border-radius: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.flap-top {
+    top: 0;
+}
+
+.flap-bottom {
+    bottom: 0;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+}
+
+.envelope-body .web {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 30%),
+                      radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 50%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.letter-envelope:hover .flap-top {
+    transform: rotateX(-30deg);
+    top: 5%;
+}
+
+.letter-envelope:hover .flap-bottom {
+    transform: rotateX(30deg);
+    bottom: 5%;
+}
+
+.letter-content {
+    display: none;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 420px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    font-family: 'Georgia', serif;
+    text-align: justify;
+}
+
+.letter-content p {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: dissolve 1s forwards;
+}
+
+@keyframes dissolve {
+    to {
+        opacity: 1;
+    }
+}
