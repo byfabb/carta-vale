@@ -11,30 +11,35 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #FF7F50; /* Fondo verde coral */
+    overflow: hidden; /* Evita el desbordamiento en dispositivos móviles */
 }
 
 .wrapper {
     text-align: center;
+    width: 100%;
 }
 
 .letter-container {
     position: relative;
     display: inline-block;
+    max-width: 300px; /* Asegura que el diseño no sea demasiado grande en móviles */
+    width: 100%;
 }
 
 .letter-envelope {
     cursor: pointer;
     position: relative;
-    width: 250px;
+    width: 100%;
     height: 200px;
     background-color: red; /* Sobre rojo */
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
 .letter-envelope:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -70,8 +75,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 30%),
                       radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 50%);
     transform: translate(-50%, -50%);
@@ -90,22 +95,22 @@ body {
 
 .letter-content {
     display: none;
-    margin-top: 20px;
     background-color: #fff;
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    max-width: 420px;
+    max-width: 90%; /* Ajusta el contenido en pantallas pequeñas */
     margin: 20px auto;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     color: #333;
     font-family: 'Georgia', serif;
     text-align: justify;
+    overflow-wrap: break-word; /* Asegura que el texto largo no desborde */
 }
 
 .letter-content p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     opacity: 0;
     animation: dissolve 1s forwards;
 }
@@ -113,5 +118,16 @@ body {
 @keyframes dissolve {
     to {
         opacity: 1;
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .letter-envelope {
+        height: 180px;
+    }
+
+    .letter-content {
+        font-size: 14px; /* Reduce el tamaño del texto en pantallas pequeñas */
     }
 }
