@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <link rel="stylesheet" href="style.css">  <!-- Enlace al archivo CSS -->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="letter-container">
+            <div class="letter-envelope" onclick="showLetter()" onmouseover="moveEnvelope(event)">
+                <div class="flap-top"></div>
+                <div class="flap-bottom"></div>
+                <div class="envelope-body">
+                    <div class="web"></div> <!-- Telaraña -->
+                </div>
+            </div>
+            <div class="letter-content" id="letterContent">
+                <p>Hola, Vale!</p>
+                <p>Primero que nada, feliz cumpleaños! Espero que hoy te sirvas tu plato favorito, sonrías mucho y disfrutes de todo lo que te hace feliz.</p>
+                <p>Pensé bastante en qué regalarte, sabiendo que estás lejos. Y aunque una carta suene simple, me pareció bonito escribirte algo desde el corazón.</p>
+                <p>Es increíble pensar que ya tienes 25 años. Una adulta luchando por sus sueños... Y es increíble pensar que nos conocemos desde que teníamos 14.</p>
+                <p>Hoy solo quiero recordarte lo especial que has sido, y sigues siendo, para mí. Has tenido un impacto enorme en mi vida. Porque gracias a ti hoy soy una mejor persona. Tú me enseñaste cosas que marcaron quién soy.</p>
+                <p>De ti aprendí a ser fuerte, escuchando tus historias. De ti aprendí lo que sería hoy mi pasión, porque cuando éramos niños soñábamos con mundos de película y arte. Tú me hacías cartas y manualidades preciosas; yo soñaba con hacerte un video que refleje todo lo que veía en ti sin tener idea de cómo hacerlo. Y hoy, me dedico a editar videos y escribir guiones. Y gran parte de eso lo aprendí de ti.</p>
+                <p>Tengo muchos recuerdos contigo. Algunos me dieron lecciones. Otros, simplemente me hacen cerrar los ojos y reír. Esos son los que más atesoro.</p>
+                <p>En este día tan tuyo, solo quiero que recuerdes el impacto que tienes en los demás. Eres una guerrera, estás luchando por tu futuro, y aunque haya días malos o dudas, estás dando lo mejor de ti.</p>
+                <p>Eres una persona increíble. Y, con la mano en el corazón, una persona que me cambió la vida.</p>
+                <p>Feliz cumpleaños.<br>Que esta nueva etapa te traiga felicidad y muchos sueños cumplidos.<br>Ojalá verte pronto.</p>
+                <p>FRVS.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLetter() {
+            const content = document.getElementById('letterContent');
+            content.style.display = 'block';
+            const envelope = document.querySelector('.letter-envelope');
+            envelope.style.display = 'none';
+            
+            // Animación para el texto
+            const paragraphs = content.querySelectorAll('p');
+            paragraphs.forEach((p, index) => {
+                p.style.animation = `dissolve 1s forwards ${index * 0.5}s`;
+            });
+        }
+
+        function moveEnvelope(event) {
+            const envelope = document.querySelector('.letter-envelope');
+            const x = (event.clientX / window.innerWidth) * 10;
+            const y = (event.clientY / window.innerHeight) * 10;
+            envelope.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>
